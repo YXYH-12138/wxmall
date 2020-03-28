@@ -1,0 +1,19 @@
+<scroll-view scroll-x="{{false}}" scroll-y scroll-left="-1000rpx" bindscroll="handleScroll" scroll-with-animation>
+  <!-- 轮播图 -->
+  <hw-swiper bannerList="{{bannerList}}" />
+  <!-- 推荐数据 -->
+  <view class="home-recommend">
+    <view class="recommend-item" wx:for="{{recommendList}}" wx:key="{{index}}">
+      <image class="recommend-img" src="{{item.image}}" />
+      <view class="recommend-title">{{item.title}}</view>
+    </view>
+  </view>
+  <view class="tab-control-occupy">
+    <!-- 控制条 -->
+    <hw-tab-control id="tab-control" class="{{isSticky?'home-tab-control':''}}" titles="{{titles}}" bind:handleChange="handleTabChange" />
+  </view>
+  <!-- 商品展示 -->
+  <goods-list bind:handleSelectGoods="handleSelectGoods" goods="{{goods[currentType].list}}" />
+  <!-- 回到顶部 -->
+  <hw-back-top wx:if="{{isShow}}" bind:tap="handleBackTop"></hw-back-top>
+</scroll-view>

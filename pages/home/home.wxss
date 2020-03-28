@@ -1,0 +1,32 @@
+.home-recommend {
+  height: 230rpx;
+  display: flex;
+  margin-top: 20rpx;
+  text-align: center;
+  border-bottom: 20rpx solid #eee;
+}
+
+.recommend-img {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.recommend-title {
+  font-size: 30rpx;
+  color: rgb(102, 102, 102);
+}
+
+.recommend-item {
+  flex: 1;
+}
+
+.home-tab-control {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.tab-control-occupy {
+  height: 88rpx;
+}

@@ -1,1 +1,8 @@
-{}
+{
+  "usingComponents": {
+    "hw-back-top": "../../components/hw-back-top/hw-back-top",
+    "hw-swiper": "../../components/hw-swiper/hw-swiper",
+    "hw-tab-control": "../../components/hw-tab-control/hw-tab-control",
+    "goods-list": "../../components/good-slist/goods-list/goods-list"
+  }
+}

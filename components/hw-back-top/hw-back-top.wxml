@@ -1,0 +1,3 @@
+<view class="back-top">
+  <image mode="aspectFit" src="../../assets/images/common/top.png" />
+</view>

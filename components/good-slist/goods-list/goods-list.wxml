@@ -1,0 +1,5 @@
+<view class="goods">
+  <block wx:for="{{goods}}" wx:key="{{item.iid}}">
+    <goods-list-item bind:tap="handleTap" data-iid="{{item.iid}}" goodsItem="{{item}}" class="goods-item" />
+  </block>
+</view>

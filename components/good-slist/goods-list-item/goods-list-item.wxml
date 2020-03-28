@@ -1,0 +1,11 @@
+<view class="goods-item">
+  <image class="img" lazy-load="{{true}}" src="{{goodsItem.show.img}}">
+    {{goodsItem.show.img}}
+  </image>
+  <view class="item-info">
+    <view class="title">{{goodsItem.title}}</view>
+    <text class="price">￥{{goodsItem.price}}</text>
+    <image src="../../../assets/images/common/favor.png" />
+    <text class="cfav">{{goodsItem.cfav}}</text>
+  </view>
+</view>
