@@ -32,18 +32,27 @@ Page({
     currentType: 'pop',
     //是否显示回到顶部按钮
     isShow: false,
-    //是否固定tab-control
-    isSticky: false,
+    //是否显示顶部的tab-control
+    ctrVisibility: false,
     //tab-control 距离顶部的距离
-    offsetTop: 0
+    offsetTop: 0,
+    // toPosition: 0,
+    // screenHeight: 0
   },
   onLoad() {
+    // wx.getSystemInfo({
+    //   success: (result) => {
+    //     this.setData({
+    //       screenHeight: result.screenHeight + 'px'
+    //     })
+    //   },
+    // });
     //轮播图和推荐信息的请求
     getMultidata().then(res => {
       this.setData({
         //保存信息
-        bannerList: res.banner.list,
-        recommendList: res.recommend.list
+        bannerList: res.data.banner.list,
+        recommendList: res.data.recommend.list
       })
     }).catch(err => {
       console.log(err);
@@ -53,6 +62,11 @@ Page({
     this._getHomeGoods('new');
     this._getHomeGoods('sell');
   },
+  onReady() {
+    wx.createSelectorQuery().select('#tab-control').boundingClientRect(rect => {
+      this.data.offsetTop = rect.top
+    }).exec()
+  },
   _getHomeGoods(type = this.data.currentType) {
     //请求一次让当前页数+1
     const page = this.data.goods[type].page + 1;
@@ -61,7 +75,7 @@ Page({
       const pageKey = `goods.${type}.page`
       //将商品数据加入到goods.list中
       this.setData({
-        [listKey]: this.data.goods[type].list.concat(res.list),
+        [listKey]: this.data.goods[type].list.concat(res.data.list),
         [pageKey]: this.data.goods[type].page + 1,
       })
     });
@@ -81,6 +95,9 @@ Page({
   },
   //回到顶部
   handleBackTop() {
+    // this.setData({
+    //   toPosition: 0
+    // })
     wx.pageScrollTo({
       scrollTop: 0,
       duration: 300
@@ -90,30 +107,36 @@ Page({
   onPageScroll({
     scrollTop
   }) {
-    let flagTop = scrollTop >= TOP_DISTANCE
+    // console.log(1);
+    // let flagTop = scrollTop >= TOP_DISTANCE
     let flagTabCtr = scrollTop >= this.data.offsetTop
-    if (flagTop != this.data.isShow) {
+    // if (flagTop != this.data.isShow) {
+    //   this.setData({
+    //     isShow: flagTop
+    //   })
+    // }
+    if (flagTabCtr != this.data.ctrVisibility) {
       this.setData({
-        isShow: flagTop
-      })
-    }
-    if (flagTabCtr != this.data.isSticky) {
-      this.setData({
-        isSticky: flagTabCtr
+        ctrVisibility: flagTabCtr,
+        isShow: flagTabCtr
       })
     }
   },
-  onShow() {
-    wx.createSelectorQuery().select('#tab-control').boundingClientRect(rect => {
-      this.data.offsetTop = rect.top
-    }).exec()
-  },
-  handleSelectGoods({
-    detail
-  }) {
-    // wx.navigateTo({
-    //   url: `../detail/detail?iid=${detail.id}`
-    // });
-    console.log(detail.id);
-  }
+  // scrollPosition({
+  //   detail
+  // }) {
+  //   let top = detail.scrollTop
+  //   let flagTop = top >= TOP_DISTANCE
+  //   let flagTabCtr = top >= this.data.offsetTop
+  //   if (flagTop != this.data.isShow) {
+  //     this.setData({
+  //       isShow: flagTop
+  //     })
+  //   }
+  //   if (flagTabCtr != this.data.ctrVisibility) {
+  //     this.setData({
+  //       ctrVisibility: flagTabCtr
+  //     })
+  //   }
+  // }
 })

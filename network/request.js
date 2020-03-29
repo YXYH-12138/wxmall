@@ -8,7 +8,7 @@ export default function (options) {
     wx.request({
       ...options,
       success(res) {
-        resolve(res.data.data)
+        resolve(res.data)
       },
       fail: reject
     });

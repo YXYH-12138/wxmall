@@ -1,1 +1,13 @@
-{}
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "hw-swiper": "../../components/hw-swiper/hw-swiper",
+    "hw-base-info": "./childCpns/hw-base-info/hw-base-info",
+    "hw-shop-info": "./childCpns/hw-shop-info/hw-shop-info",
+    "hw-detail-info": "./childCpns/hw-detail-info/hw-detail-info",
+    "hw-param-info": "./childCpns/hw-param-info/hw-param-info",
+    "hw-comment-info": "./childCpns/hw-comment-info/hw-comment-info",
+    "hw-recommend-info": "./childCpns/hw-recommend-info/hw-recommend-info",
+    "hw-bottom-bar": "./childCpns/hw-bottom-bar/hw-bottom-bar"
+  }
+}

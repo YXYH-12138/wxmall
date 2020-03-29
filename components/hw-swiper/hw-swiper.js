@@ -1,7 +1,7 @@
 Component({
   data: {},
   properties: {
-    bannerList: {
+    images: {
       type: Array,
       defualt: []
     }

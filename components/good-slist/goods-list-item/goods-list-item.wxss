@@ -5,9 +5,13 @@
   left: 0; */
 }
 
+.item-img {
+  height: 540rpx;
+}
+
 .img {
   width: 100%;
-  height: 540rpx;
+  height: 100%;
   border-radius: 10rpx;
 }
 
@@ -29,8 +33,5 @@
 }
 
 .goods-item .item-info {
-  /* position: absolute;
-  width: 100%;
-  bottom: 16rpx;
-  left: 0; */
+  margin-top: 6rpx;
 }

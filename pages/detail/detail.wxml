@@ -1,1 +1,18 @@
-<view class="container"></view>
+<view class="detail-container" style="height:{{screenHeight}}px">
+  <scroll-view class='detail' scroll-y>
+    <!-- 轮播图 -->
+    <hw-swiper class='d-swiper' images="{{topImages}}" />
+    <!-- 商品基本信息 -->
+    <hw-base-info baseInfo="{{baseInfo}}" />
+    <!-- 卖家信息 -->
+    <hw-shop-info shopInfo="{{shopInfo}}" />
+    <hw-detail-info detailInfo="{{detailInfo}}" />
+    <!-- 商品参数 如：尺码、颜色等 相关信息 -->
+    <hw-param-info paramInfo="{{paramInfo}}" />
+    <!-- 评论 -->
+    <hw-comment-info commentInfo="{{commentInfo}}" />
+    <!-- 推荐 -->
+    <hw-recommend-info recommends="{{recommends}}" />
+  </scroll-view>
+  <hw-bottom-bar class="detail-bottom-bar" bind:addcart="onAddCart" />
+</view>

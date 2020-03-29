@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "hw-goods": "/components/good-slist/goods-list/goods-list"
+  }
+}

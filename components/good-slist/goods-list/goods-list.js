@@ -11,9 +11,10 @@ Component({
       target
     }) {
       let id = target.dataset.iid
-      this.triggerEvent('handleSelectGoods', {
-        id
-      })
+      if (!id) return
+      wx.navigateTo({
+        url: `../detail/detail?iid=${id}`
+      });
     }
   },
 })

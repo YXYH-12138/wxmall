@@ -1,0 +1,11 @@
+.detail {
+  height: calc(100% - 120rpx);
+}
+
+.detail-container {
+  height: 100%;
+}
+
+.d-swiper swiper {
+  height: 600rpx;
+}

@@ -10,6 +10,6 @@
   font-size: 32rpx;
   text-align: center;
   /*  position: relative; */
-  padding-bottom: 25rpx;
+  /* padding-bottom: 15rpx; */
   height: 632rpx;
 }

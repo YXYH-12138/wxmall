@@ -1,19 +1,23 @@
-<scroll-view scroll-x="{{false}}" scroll-y scroll-left="-1000rpx" bindscroll="handleScroll" scroll-with-animation>
+<!-- <scroll-view style="height:{{screenHeight}}" scroll-top="{{toPosition}}" class="content" scroll-y="{{true}}" bindscroll="scrollPosition" scroll-with-animation="true"> -->
+<view class="home">
+  <hw-tab-control style="opacity:{{ctrVisibility?1:0}}" class="home-tab-control" titles="{{titles}}" bind:handleChange="handleTabChange" />
   <!-- 轮播图 -->
-  <hw-swiper bannerList="{{bannerList}}" />
+  <hw-swiper images="{{bannerList}}" />
   <!-- 推荐数据 -->
   <view class="home-recommend">
-    <view class="recommend-item" wx:for="{{recommendList}}" wx:key="{{index}}">
+    <view class="recommend-item" wx:for="{{recommendList}}" wx:key="index">
       <image class="recommend-img" src="{{item.image}}" />
       <view class="recommend-title">{{item.title}}</view>
     </view>
   </view>
-  <view class="tab-control-occupy">
-    <!-- 控制条 -->
-    <hw-tab-control id="tab-control" class="{{isSticky?'home-tab-control':''}}" titles="{{titles}}" bind:handleChange="handleTabChange" />
-  </view>
+  <!-- <view id="tab-control-occupy"> -->
+  <!-- class="{{isSticky?'home-tab-control':''}}" -->
+  <!-- 控制条 -->
+  <hw-tab-control id="tab-control" titles="{{titles}}" bind:handleChange="handleTabChange" />
+  <!-- </view> -->
   <!-- 商品展示 -->
-  <goods-list bind:handleSelectGoods="handleSelectGoods" goods="{{goods[currentType].list}}" />
+  <goods-list goods="{{goods[currentType].list}}" />
   <!-- 回到顶部 -->
   <hw-back-top wx:if="{{isShow}}" bind:tap="handleBackTop"></hw-back-top>
-</scroll-view>
+</view>
+<!-- </scroll-view> -->

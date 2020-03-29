@@ -1,5 +1,7 @@
-<swiper autoplay circular indicator-dots indicator-active-color="#ff5777" indicator-color="rgba(255, 255, 255, .5)">
-  <swiper-item wx:for="{{bannerList}}" wx:key="{{index}}">
-    <cover-image src="{{item.image}}"></cover-image>
-  </swiper-item>
+<swiper autoplay circular indicator-dots indicator-active-color="#ff5777" class='swiper' indicator-color="rgba(255, 255, 255, .5)">
+  <block wx:for="{{images}}" wx:key="index">
+    <swiper-item>
+      <image class="swiper-image" src="{{item.image || item}}" mode='widthFix' />
+    </swiper-item>
+  </block>
 </swiper>
