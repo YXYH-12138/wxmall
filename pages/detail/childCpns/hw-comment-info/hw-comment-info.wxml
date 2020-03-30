@@ -9,7 +9,7 @@
   </view>
   <view class='comment'>{{commentInfo.content}}</view>
   <view class='other-info'>
-    <view class='time'>{{commentInfo.created}}</view>
+    <view class='time'>{{time}}</view>
     <view class='style'>{{commentInfo.style}}</view>
   </view>
   <view class='picture'>

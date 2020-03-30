@@ -1,0 +1,1 @@
+<icon class='check-icon icon' type='success' size='18' style='border-color: {{isChecked ? "#ff5777": "#aaa"}};' color='{{isChecked ? "#ff5777": "#fff"}}' />

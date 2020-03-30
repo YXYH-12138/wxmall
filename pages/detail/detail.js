@@ -6,6 +6,8 @@ import {
   ParamInfo,
 } from '../../network/detail.js'
 
+const app = getApp();
+
 Page({
   data: {
     iid: '', // 1m7c6iu
@@ -79,4 +81,23 @@ Page({
       })
     })
   },
+  onAddCart() {
+    // 1.获取商品对象
+    const obj = {}
+    obj.iid = this.data.iid;
+    obj.imageURL = this.data.topImages[0];
+    obj.title = this.data.baseInfo.title;
+    obj.desc = this.data.baseInfo.desc;
+    obj.price = this.data.baseInfo.realPrice;
+    //是否选中
+    obj.checked = true
+    //商品数量
+    obj.count = 1
+    // 2.加入到购物车列表
+    app.addToCart(obj)
+    // 3.加入成功提示
+    wx.showToast({
+      title: '加入购物车成功',
+    })
+  }
 })

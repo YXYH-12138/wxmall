@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "hw-check-icon": "/components/hw-check-icon/hw-check-icon"
+  }
+}
