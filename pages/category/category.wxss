@@ -1,0 +1,11 @@
+.category {
+  display: flex;
+}
+
+.category hw-menu {
+  width: 30%;
+}
+
+.category hw-content {
+  width: 70%;
+}

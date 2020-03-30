@@ -1,1 +1,7 @@
-{}
+{
+  "navigationBarTitleText": "商品分类",
+  "usingComponents": {
+    "hw-menu": "./childCpns/hw-menu/hw-menu",
+    "hw-content": "./childCpns/hw-content/hw-content"
+  }
+}

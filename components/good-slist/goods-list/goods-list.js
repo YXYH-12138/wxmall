@@ -1,5 +1,7 @@
 Component({
-  data: {},
+  options: {
+    styleIsolation: 'apply-shared'
+  },
   properties: {
     goods: {
       type: Array,

@@ -1,0 +1,36 @@
+.content {
+  height: 100%;
+}
+
+.subcategory {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20rpx;
+  margin-top: 30rpx;
+}
+
+.subcategory .item {
+  width: 33.33%;
+  text-align: center;
+}
+
+.subcategory .item image {
+  width: 80%;
+}
+
+.subcategory .item view {
+  font-size: 28rpx;
+  margin: 30rpx 0;
+}
+
+.content-goods goods-list-item {
+  height: 500rpx;
+}
+
+.content-goods goods-list-item image:first-child {
+  height: 410rpx;
+}
+
+.detail {
+  width: 100%;
+}

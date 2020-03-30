@@ -1,17 +1,14 @@
 .goods-item .item-info {
-  /* position: absolute; */
   width: 100%;
-  /* bottom: 8px;
-  left: 0; */
 }
 
-.item-img {
-  height: 540rpx;
+.goods-item {
+  height: 100%;
 }
 
 .img {
   width: 100%;
-  height: 100%;
+  height: 540rpx;
   border-radius: 10rpx;
 }
 
@@ -28,10 +25,6 @@
 .item-info>image {
   width: 32rpx;
   height: 32rpx;
-  margin: 0 8rpx 0 16rpx;
+  margin: 0 2rpx 0 16rpx;
   vertical-align: -3rpx;
-}
-
-.goods-item .item-info {
-  margin-top: 6rpx;
 }

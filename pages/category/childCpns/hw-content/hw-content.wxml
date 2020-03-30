@@ -1,0 +1,17 @@
+<scroll-view class='content' scroll-y>
+  <!-- 1.子类别展示 -->
+  <view class='subcategory'>
+    <block wx:for="{{subcategories}}" wx:key="index">
+      <view class='item'>
+        <image src="{{item.image}}" mode='widthFix' />
+        <view>{{item.title}}</view>
+      </view>
+    </block>
+  </view>
+  <!-- 2.工具栏 -->
+  <hw-tab-control titles="{{['综合', '新品', '销量']}}" bind:handleChange="tabClick" />
+  <!-- 3.详情数据展示 -->
+  <view class='detail'>
+    <hw-goods class="content-goods" goods="{{categoryDetail}}" />
+  </view>
+</scroll-view>

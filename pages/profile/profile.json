@@ -1,1 +1,6 @@
-{}
+{
+  "usingComponents": {
+    "hw-list-view": "./childCpns/hw-list-view/hw-list-view"
+  },
+  "navigationBarTitleText": "我的信息"
+}

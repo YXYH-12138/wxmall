@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "hw-tab-control": "/components/hw-tab-control/hw-tab-control",
+    "hw-goods": "/components/good-slist/goods-list/goods-list"
+  }
+}
