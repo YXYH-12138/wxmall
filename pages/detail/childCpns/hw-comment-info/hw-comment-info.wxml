@@ -1,3 +1,4 @@
+<wxs src="../../../../wxs/utils.wxs" module="date"></wxs>
 <view class='comment-info'>
   <view class='header'>
     <view>用户评价</view>
@@ -9,7 +10,7 @@
   </view>
   <view class='comment'>{{commentInfo.content}}</view>
   <view class='other-info'>
-    <view class='time'>{{time}}</view>
+    <view class='time'>{{date.dateTimeFormat(commentInfo.created * 1000)}}</view>
     <view class='style'>{{commentInfo.style}}</view>
   </view>
   <view class='picture'>

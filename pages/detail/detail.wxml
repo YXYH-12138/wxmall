@@ -1,4 +1,4 @@
-<view class="detail-container" style="height:{{screenHeight}}px">
+<view class="detail-container">
   <scroll-view class='detail' scroll-y>
     <!-- 轮播图 -->
     <hw-swiper class='d-swiper' images="{{topImages}}" />

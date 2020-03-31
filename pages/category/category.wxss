@@ -1,5 +1,6 @@
 .category {
   display: flex;
+  height: 100vh;
 }
 
 .category hw-menu {

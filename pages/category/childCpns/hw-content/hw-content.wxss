@@ -25,6 +25,7 @@
 
 .content-goods goods-list-item {
   height: 500rpx;
+  font-size: 30rpx;
 }
 
 .content-goods goods-list-item image:first-child {

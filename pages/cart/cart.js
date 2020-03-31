@@ -27,11 +27,6 @@ Page({
         [`cartList[${index}].checked`]: checked
       })
       app.globalData.cartList[index].checked = checked
-      //判断是否全选
-      let isAllChecked = this.data.cartList.every(item => item.checked)
-      this.setData({
-        isSelectAll: isAllChecked
-      })
       this.changeData()
     }
     //全选的回调
@@ -48,31 +43,63 @@ Page({
       })
       this.changeData()
     }
+    //删除操作
+    app.deleteCartItem = () => {
+      let cartList = this.data.cartList
+      //判断是否选择了商品
+      let isDelete = cartList.some(item => item.checked)
+      if (!isDelete) {
+        wx.showToast({
+          title: '您未选择商品',
+          duration: 1000,
+          icon: 'none'
+        })
+        return
+      }
+      wx.showModal({
+        title: '提示',
+        content: '您确定删除嘛？',
+        success: res => {
+          if (res.confirm) {
+            //获得所有未选择的商品 也就是不需要删除的商品
+            let arrKeep = cartList.filter(item => !item.checked)
+            this.setData({
+              cartList: arrKeep
+            })
+            app.globalData.cartList = arrKeep
+            wx.setNavigationBarTitle({
+              title: `购物车(${this.data.cartList.length})`,
+            })
+            this.changeData()
+          }
+        }
+      })
+    }
   },
   onShow() {
-    this.setData({
-      isSelectAll: this.data.cartList.length ? this.data.cartList.every(item => item.checked) : false
-    })
     wx.setNavigationBarTitle({
       title: `购物车(${this.data.cartList.length})`,
     })
     this.changeData()
   },
   changeData() {
-    // 1.获取所有选中数据
+    //判断是否全选
+    this.setData({
+      isSelectAll: this.data.cartList.length ? this.data.cartList.every(item => item.checked) : false
+    })
+    // 获取所有选中数据
     let totalPrice = 0;
     let counter = 0;
-
     for (let item of this.data.cartList) {
       if (item.checked) {
         counter++
         totalPrice += item.price * item.count
       }
     }
-    // 2.修改数据
+    // 修改数据
     this.setData({
       totalCounter: counter,
-      totalPrice: totalPrice
+      totalPrice: totalPrice.toFixed(2)
     })
   },
 })

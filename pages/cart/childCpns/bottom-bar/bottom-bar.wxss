@@ -19,6 +19,18 @@
   align-items: center;
 }
 
+.cart-del {
+  width: 120rpx;
+  height: 70rpx;
+  border: 1px solid red;
+  color: red;
+  font-size: 34rpx;
+  border-radius: 120rpx;
+  text-align: center;
+  line-height: 70rpx;
+  margin-right: 30rpx;
+}
+
 .counter {
   flex: 1;
   font-size: 32rpx;

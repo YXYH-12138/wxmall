@@ -1,3 +1,5 @@
+const app = getApp()
+
 Component({
   properties: {
     subcategories: {
@@ -9,7 +11,7 @@ Component({
   },
   methods: {
     tabClick(e) {
-      console.log(e.detail.index);
+      app.categoryCrlChange(e.detail.index)
     }
   }
 })

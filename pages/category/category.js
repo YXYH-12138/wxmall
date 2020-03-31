@@ -4,23 +4,27 @@ import {
   getCategoryDetail
 } from '../../network/category'
 
+const app = getApp()
+const type = ['pop', 'new', 'sell']
+
 Page({
   data: {
+    //左侧菜单数据
     categories: [],
     categoryData: {},
+    //左侧菜单索引
     currentIndex: 0,
+    //tab ctl 的索引
+    ctlCurrentIndex: 0,
     screenHeight: 0
   },
   onLoad: function () {
-    wx.getSystemInfo({
-      success: (result) => {
-        //获取设备的可使用宽度
-        this.setData({
-          screenHeight: result.windowHeight
-        })
-      },
-    });
     this._getData()
+    // 在app中添加一个tab control改变的回调 
+    app.categoryCrlChange = (ctrIndex) => {
+      this.data.ctlCurrentIndex = ctrIndex
+      this._getCategoryDetail()
+    }
   },
   _getData() {
     // 1.请求分类数据
@@ -40,12 +44,13 @@ Page({
         categoryData: categoryData
       })
       // 请求第一个类别的数据
-      this._getSubcategory(0)
+      this._getSubcategory()
       // 请求第一个类别的详情数据
-      this._getCategoryDetail(0)
+      this._getCategoryDetail()
     })
   },
-  _getSubcategory(currentIndex) {
+  _getSubcategory() {
+    let currentIndex = this.data.currentIndex
     // 1.获取对应的maitkey
     const maitkey = this.data.categories[currentIndex].maitKey;
     // 2.请求的数据
@@ -57,11 +62,12 @@ Page({
       })
     })
   },
-  _getCategoryDetail(currentIndex) {
+  _getCategoryDetail() {
+    let currentIndex = this.data.currentIndex
     // 获取对应的miniWallKey
     const miniWallKey = this.data.categories[currentIndex].miniWallkey;
     // 请求数据类别的数据
-    getCategoryDetail(miniWallKey, 'pop').then(res => {
+    getCategoryDetail(miniWallKey, type[this.data.ctlCurrentIndex]).then(res => {
       // 1.获取categoryData
       const categoryData = this.data.categoryData;
       // 2.修改数据
@@ -78,8 +84,8 @@ Page({
       currentIndex
     })
     // 请求对应currentIndex的数据
-    this._getSubcategory(currentIndex)
+    this._getSubcategory()
     // 请求对应的currentIndex的详情数据
-    this._getCategoryDetail(currentIndex)
+    this._getCategoryDetail()
   }
 })

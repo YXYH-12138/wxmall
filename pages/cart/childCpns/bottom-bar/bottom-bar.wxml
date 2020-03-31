@@ -4,5 +4,6 @@
     <view>全选</view>
   </view>
   <view class='counter'>总计: ¥{{price}}</view>
+  <view type="warn" class="cart-del" bind:tap="handleDelete">删除</view>
   <view class='payment'>去计算({{counter}})</view>
 </view>

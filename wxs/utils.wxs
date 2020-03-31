@@ -1,14 +1,12 @@
 function dateTimeFormat(data) {
-  var time = Date.now()
-  // data = new Date(data)
-  // var year = data.getFullYear()
-  // var month = data.getMonth() + 1
-  // var day = date.getDate()
-  // var hour = date.getHours()
-  // var minute = date.getMinutes()
-  // var second = date.getSeconds()
-  // return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-  return '123456'
+  var time = getDate(data)
+  var year = time.getFullYear()
+  var month = time.getMonth() + 1
+  var day = time.getDate()
+  var hour = time.getHours()
+  var minute = time.getMinutes()
+  var second = time.getSeconds()
+  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
 function formatNumber(n) {

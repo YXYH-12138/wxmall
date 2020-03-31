@@ -1,4 +1,3 @@
-/* pages/cart/childCpns/cart-list-item/cart-list-item.wxss */
 .cart-list-item {
   display: flex;
   padding: 20rpx;

@@ -3,7 +3,7 @@ import {
   getHomeGoods
 } from "../../network/home"
 
-const TOP_DISTANCE = 500
+// const TOP_DISTANCE = 500
 
 Page({
   data: {
@@ -32,21 +32,14 @@ Page({
     currentType: 'pop',
     //是否显示回到顶部按钮
     isShow: false,
-    //是否显示顶部的tab-control
-    ctrVisibility: false,
+    //是否d定位tab-control
+    isFixed: false,
     //tab-control 距离顶部的距离
     offsetTop: 0,
     // toPosition: 0,
     // screenHeight: 0
   },
   onLoad() {
-    // wx.getSystemInfo({
-    //   success: (result) => {
-    //     this.setData({
-    //       screenHeight: result.screenHeight + 'px'
-    //     })
-    //   },
-    // });
     //轮播图和推荐信息的请求
     getMultidata().then(res => {
       this.setData({
@@ -63,7 +56,7 @@ Page({
     this._getHomeGoods('sell');
   },
   onReady() {
-    wx.createSelectorQuery().select('#tab-control').boundingClientRect(rect => {
+    wx.createSelectorQuery().select('#tab-control-occupy').boundingClientRect(rect => {
       this.data.offsetTop = rect.top
     }).exec()
   },
@@ -107,7 +100,6 @@ Page({
   onPageScroll({
     scrollTop
   }) {
-    // console.log(1);
     // let flagTop = scrollTop >= TOP_DISTANCE
     let flagTabCtr = scrollTop >= this.data.offsetTop
     // if (flagTop != this.data.isShow) {
@@ -115,9 +107,9 @@ Page({
     //     isShow: flagTop
     //   })
     // }
-    if (flagTabCtr != this.data.ctrVisibility) {
+    if (flagTabCtr != this.data.isFixed) {
       this.setData({
-        ctrVisibility: flagTabCtr,
+        isFixed: flagTabCtr,
         isShow: flagTabCtr
       })
     }

@@ -9,6 +9,7 @@ App({
     this.addCartCallback && this.addCartCallback()
   },
   globalData: {
-    cartList: []
+    cartList: [],
+    currentIndex: 0
   }
 })

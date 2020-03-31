@@ -3,9 +3,9 @@
 }
 
 .detail-container {
-  height: 100%;
+  height: 100vh;
 }
 
 .d-swiper swiper {
-  height: 600rpx;
+  height: 700rpx;
 }

@@ -1,4 +1,4 @@
-<view class='category' style="height:{{screenHeight}}px">
+<view class='category'>
   <hw-menu categories="{{categories}}" bind:menuclick="menuClick" />
   <hw-content subcategories="{{categoryData[currentIndex].subcategories}}" categoryDetail="{{categoryData[currentIndex].categoryDetail}}" />
 </view>

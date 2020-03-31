@@ -25,15 +25,6 @@ Page({
     this.setData({
       iid: query.iid
     })
-    //获取设备信息
-    wx.getSystemInfo({
-      success: (result) => {
-        //获取设备的可使用宽度
-        this.setData({
-          screenHeight: result.windowHeight
-        })
-      },
-    });
     // 2.请求商品详情数据
     this._getDetailData()
     // 3.请求推荐的数据

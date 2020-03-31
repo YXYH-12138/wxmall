@@ -17,6 +17,9 @@ Component({
     onSelectAll() {
       if (!app.globalData.cartList.length) return
       app.selectAll()
+    },
+    handleDelete() {
+      app.deleteCartItem()
     }
   }
 })
